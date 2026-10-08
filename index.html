@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--
+  index.html = the STRUCTURE of the page.
+  HTML uses "tags" like <h1> ... </h1> to label what each piece of content is.
+  Nothing here controls colors or layout; that's styles.css's job.
+  Nothing here reacts to clicks; that's script.js's job.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- This line makes the page scale properly on phones. Don't delete it! -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- The text shown in the browser tab. TODO: change to your friend's business name -->
+  <title>Michael Munoz Media| Event Photo Magnets</title>
+
+  <!-- Connects our CSS file to this page -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- ============ HEADER / NAVIGATION ============ -->
+  <header class="site-header">
+    <!-- TODO: swap this text for a real logo image later -->
+    <a href="#top" class="logo">Michael Munoz Media</a>
+
+    <!-- This button only shows on phones (see styles.css). script.js makes it work. -->
+    <button id="menu-button" class="menu-button" aria-label="Toggle menu">
+      &#9776;
+    </button>
+
+    <!-- The links jump to sections below using each section's id (like #pricing) -->
+    <nav id="main-nav" class="main-nav">
+      <a href="#how-it-works">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO SECTION ============ -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Turn your best event moments into magnets.</h1>
+        <p>
+          We take the photos at your event. You pick your favorites.
+          We print them as magnets you can keep on the fridge forever.
+        </p>
+        <a href="#contact" class="button">Book your event</a>
+      </div>
+
+      <!-- Placeholder "photo" made from CSS. Replace with a real <img> later:
+           <img src="photos/hero.jpg" alt="Guests holding photo magnets" /> -->
+      <img class="hero-image" src="photos/hero.png" alt="Guests enjoying dinner at an event" />
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section id="how-it-works" class="section">
+      <h2>How it works</h2>
+
+      <!-- Three "cards" laid out side by side on desktop, stacked on phones -->
+      <div class="card-row">
+        <div class="card">
+          <div class="card-number">1</div>
+          <h3>We shoot your event</h3>
+          <p>Our photographer captures the day, from big moments to candid laughs.</p>
+        </div>
+        <div class="card">
+          <div class="card-number">2</div>
+          <h3>You pick your favorites</h3>
+          <p>Get a private link to your event gallery and choose the shots you love.</p>
+        </div>
+        <div class="card">
+          <div class="card-number">3</div>
+          <h3>We print and deliver</h3>
+          <p>Your photos become sturdy, glossy magnets, ready to stick anywhere.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section id="pricing" class="section section-alt">
+      <h2>Pricing</h2>
+      <p class="section-note">Placeholder prices. Update these with your friend's real numbers.</p>
+
+      <div class="card-row">
+        <div class="card">
+          <h3>Set of 9</h3>
+          <p class="price">$24.99</p>
+          <p>9 magnets, 2" x 3"</p>
+        </div>
+        <div class="card card-featured">
+          <h3>Set of 18</h3>
+          <p class="price">$39.99</p>
+          <p>18 magnets, 2" x 3"</p>
+        </div>
+        <div class="card">
+          <h3>Set of 27</h3>
+          <p class="price">$49.99</p>
+          <p>27 magnets, 2" x 3"</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT FORM ============ -->
+    <section id="contact" class="section">
+      <h2>Book your event</h2>
+      <p class="section-note">Tell us a little about your event and we'll get back to you.</p>
+
+      <!-- id="contact-form" lets script.js find this form -->
+      <form id="contact-form" class="contact-form">
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="event-type">Event type</label>
+        <select id="event-type" name="event-type">
+          <option value="wedding">Wedding</option>
+          <option value="birthday">Birthday</option>
+          <option value="corporate">Corporate event</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label for="message">Tell us about it</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+
+        <button type="submit" class="button">Send request</button>
+
+        <!-- Empty for now; script.js fills this in after the form is submitted -->
+        <p id="form-message" class="form-message"></p>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <!-- The <span> is empty; script.js fills in the current year -->
+    <p>&copy; <span id="year"></span> Michael Munoz Media. All rights reserved.</p>
+  </footer>
+
+  <!-- Connects our JavaScript file. It goes at the bottom so the page
+       finishes loading before the script tries to find elements on it. -->
+  <script src="script.js"></script>
+</body>
+</html>

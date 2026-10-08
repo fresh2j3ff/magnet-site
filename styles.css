@@ -1,0 +1,287 @@
+/*
+  styles.css = how the page LOOKS.
+  A CSS rule looks like:   selector { property: value; }
+  The selector says WHICH elements, the properties say HOW they look.
+*/
+
+/* ---------- VARIABLES ----------
+   Define colors once here, reuse everywhere with var(--name).
+   Change a color here and the whole site updates. Try it! */
+:root {
+  --color-primary: #0d0d0d;   /* orange-red, used for buttons and accents */
+  --color-dark: #222222;      /* main text color */
+  --color-light: #fafafa;     /* page background */
+  --color-alt: #f0ebe5;       /* background for alternating sections */
+  --color-white: #ffffff;
+}
+
+/* ---------- RESET ----------
+   Browsers add default spacing that differs between them.
+   This makes sizing more predictable: padding no longer makes boxes bigger. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;   /* nav links glide instead of jumping */
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--color-dark);
+  background: var(--color-light);
+  line-height: 1.6;          /* space between lines of text */
+}
+
+/* ---------- HEADER ---------- */
+.site-header {
+  display: flex;                    /* Flexbox: puts children in a row */
+  justify-content: space-between;   /* logo on left, nav on right */
+  align-items: center;              /* vertically centered */
+  padding: 1rem 1.5rem;
+  background: var(--color-white);
+  position: sticky;                 /* stays at top while scrolling */
+  top: 0;
+  z-index: 10;                      /* keeps it above other content */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.main-nav a {
+  margin-left: 1.5rem;
+  color: var(--color-dark);
+  text-decoration: none;
+}
+
+.main-nav a:hover {
+  color: var(--color-primary);
+}
+
+/* The hamburger button is hidden on big screens */
+.menu-button {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* ---------- BUTTONS ---------- */
+.button {
+  display: inline-block;
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 0.8rem 1.6rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 2rem;                  /* space between the text and the image */
+  max-width: 1000px;
+  margin: 0 auto;             /* auto left/right margins = centered */
+  padding: 4rem 1.5rem;
+}
+
+.hero-text {
+  flex: 1;                    /* text and image share the width equally */
+}
+
+.hero-text h1 {
+  font-size: 2.6rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.hero-image {
+  flex: 1;
+  min-height: 280px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f6a586, #e4572e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  font-weight: bold;
+}
+
+img.hero-image {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;   /* crops the photo to fill the box instead of squishing it */
+}
+
+/* ---------- GENERIC SECTIONS ---------- */
+.section {
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.section-alt {
+  background: var(--color-alt);
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-note {
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+/* ---------- CARDS ---------- */
+.card-row {
+  display: flex;
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 2rem auto 0;
+}
+
+.card {
+  flex: 1;
+  background: var(--color-white);
+  padding: 2rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.card-featured {
+  border: 2px solid var(--color-primary);
+}
+
+.card-number {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 auto 1rem;
+  border-radius: 50%;          /* 50% radius turns a square into a circle */
+  background: var(--color-primary);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+/* ---------- CONTACT FORM ---------- */
+.contact-form {
+  display: flex;
+  flex-direction: column;      /* stack the fields vertically */
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.contact-form label {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  padding: 0.7rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.contact-form .button {
+  margin-top: 1.5rem;
+}
+
+.form-message {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: green;
+}
+
+/* ---------- FOOTER ---------- */
+.site-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: var(--color-dark);
+  color: var(--color-white);
+}
+
+/* ---------- MOBILE LAYOUT ----------
+   Everything inside this block ONLY applies when the screen is 700px wide or
+   less (phones). This is called a "media query" and is the heart of
+   responsive design. */
+@media (max-width: 700px) {
+
+  .menu-button {
+    display: block;            /* show the hamburger on phones */
+  }
+
+  .main-nav {
+    display: none;             /* hide the links until the button is tapped */
+    position: absolute;
+    top: 100%;                 /* just below the header */
+    left: 0;
+    right: 0;
+    background: var(--color-white);
+    flex-direction: column;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* script.js adds the class "open" to show the menu */
+  .main-nav.open {
+    display: flex;
+  }
+
+  .main-nav a {
+    margin: 0;
+    padding: 0.7rem 0;
+  }
+
+  .hero {
+    flex-direction: column;    /* stack text above image */
+    padding: 2rem 1.5rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .card-row {
+    flex-direction: column;    /* stack cards vertically */
+  }
+}
